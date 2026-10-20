@@ -1,0 +1,290 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #141414;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 5%;
+    background: rgba(15, 15, 15, 0.97);
+}
+
+.logo {
+    color: #e50914;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+.nav-right {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-right input {
+    width: 150px;
+    padding: 9px;
+    border: 1px solid #555;
+    background: #222;
+    color: white;
+    border-radius: 4px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 10px 16px;
+}
+
+#searchBtn {
+    background: #e50914;
+    color: white;
+}
+
+.hero {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    padding: 60px 5%;
+    background:
+        linear-gradient(to right, #141414 5%, transparent 100%),
+        linear-gradient(to top, #141414, transparent 55%),
+       url("https://image.tmdb.org/t/p/original/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg") center/cover;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.tag {
+    color: #e50914;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 65px);
+    margin-bottom: 18px;
+}
+
+.description {
+    line-height: 1.7;
+    font-size: 17px;
+    color: #eee;
+    margin-bottom: 22px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.play-btn {
+    background: white;
+    color: black;
+}
+
+.info-btn {
+    background: rgba(100, 100, 100, 0.8);
+    color: white;
+}
+
+.play-btn:hover,
+.info-btn:hover,
+#searchBtn:hover {
+    opacity: 0.8;
+}
+
+.movie-section {
+    padding: 22px 5%;
+}
+
+.movie-section h2 {
+    font-size: 23px;
+    margin-bottom: 18px;
+}
+
+.movie-row {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: #555 #222;
+}
+
+.movie-card {
+    flex: 0 0 180px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.07);
+    z-index: 2;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 255px;
+    object-fit: cover;
+    border-radius: 5px;
+    background: #333;
+}
+
+.movie-card h3 {
+    font-size: 14px;
+    margin-top: 9px;
+}
+
+.movie-card p {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.empty-message {
+    color: #bbb;
+    padding: 15px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: #242424;
+    padding: 35px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    line-height: 1.7;
+    color: #ddd;
+}
+
+.modal-note {
+    margin-top: 18px;
+    font-size: 12px;
+    color: #aaa !important;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #444;
+    color: white;
+    border-radius: 50%;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    color: #888;
+    font-size: 13px;
+    line-height: 2;
+}
+
+@media (max-width: 750px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        gap: 15px;
+        overflow-x: auto;
+    }
+
+    .nav-right input {
+        width: 120px;
+    }
+
+    .hero {
+        min-height: 400px;
+        background-position: center;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .movie-card {
+        flex-basis: 140px;
+    }
+
+    .movie-card img {
+        height: 210px;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo {
+        font-size: 24px;
+    }
+
+    .nav-right input {
+        width: 100px;
+    }
+
+    .nav-right button {
+        padding: 9px;
+    }
+}
